@@ -18,13 +18,3 @@
     width: 100%;
     z-index: 1;
 }
-
-.nav-item-active {
-    border-style: solid;
-    border-color: var(--foreground);
-}
-
-.nav-item {
-    border-bottom-width: 3px;
-    cursor: pointer;
-}

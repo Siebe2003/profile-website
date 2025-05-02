@@ -11,13 +11,15 @@ interface NavItemProps {
 }
 
 const NavItem: FunctionComponent<NavItemProps> = ({name, href}) => {
+  const activeCSS = 'bg-secondary md:bg-inherit md:border-solid md:border-(--foreground)'
+
   const pathname = usePathname()
   const isActive = pathname === href
 
   const [hover, setHover] = useState(false)
 
   return (
-    <li className={`${(hover || isActive) && 'nav-item-active'} flex items-center justify-center nav-item`}
+    <li className={`${(hover || isActive) && activeCSS} py-1 md:p-0 flex items-center justify-center cursor-pointer md:border-b-3`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
       <Link href={href}>{name}</Link>
