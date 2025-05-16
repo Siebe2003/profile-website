@@ -10,7 +10,7 @@ function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true)
 
   return (
-    <nav className="flex items-center text-xl px-6 h-16 navbar shadow-sm">
+    <nav className="z-30 flex items-center text-xl px-6 h-16 navbar shadow-sm">
       <div className="grow collapse md:visible">
         <Link
           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">

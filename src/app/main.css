@@ -6,12 +6,6 @@
     z-index: -1;
 }
 
-.content {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 .navbar {
     position: fixed;
     top: 0;

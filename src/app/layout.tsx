@@ -28,8 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`}>
-        <Navbar />
-        {children}
+          <header className="relative z-30">
+            <Navbar />
+          </header>
+          {children}
       </body>
     </html>
   );
