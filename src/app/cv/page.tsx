@@ -1,10 +1,6 @@
 import React, {FunctionComponent} from 'react'
 
-interface PageProps {
-
-}
-
-const Page: FunctionComponent<PageProps> = () => {
+const Page: FunctionComponent = () => {
   return (
     <>
       <video autoPlay muted loop id="myVideo">
