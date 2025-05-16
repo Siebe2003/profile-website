@@ -1,106 +1,36 @@
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link'
+import Carousel from '@/app/_home/Carousel'
+import {Button} from '@/components/ui/button'
+import Image from 'next/image'
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-          <li className="tracking-[-.01em]">
-            Test
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to NEXTjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    <>
+      <video autoPlay muted loop id="myVideo">
+        <source src="/videos/hero-background.mp4" type="video/mp4"/>
+      </video>
+      <div
+        className="flex items-center justify-items-center md:px-20 xl:px-30 2xl:px-60 min-h-screen pt-16">
+        <main className="flex flex-col items-center sm:items-start md:grid md:grid-rows-[auto_auto_auto] md:grid-cols-2 md:gap-10 lg:flex lg:flex-row lg:gap-15 xl:gap-20 3xl:gap-30">
+          <Carousel />
+          <div className="flex flex-col gap-10 items-center p-10 md:p-0 order-first md:order-last md:grid md:grid-cols-subgrid md:grid-rows-subgrid md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-3 lg:flex lg:flex-col lg:row-start-auto lg:col-start-auto lg:gap-10 lg:items-start 3xl:gap-10">
+            <h1 className="text-5xl text-center md:mb-0 md:col-span-2 lg:text-start 3xl:text-6xl">My portfolio</h1>
+            <p className="text-center md:text-start md:row-start-2 md:col-start-2 md:h-full lg:row-start-auto">Hello and welcome to my portfolio website. My name is Siebe Verhaegen and I&#39;m a student of Thomas
+              More in Lier. I follow a course in programming and aspire to be a great software developer. The purpose of
+              this website is to show who I am. This includes my interests, skills and accomplishments. It is made by me
+              to give it the flare that fits with my personality. If you would have any questions for me, feel free to
+              contact me using my email or the contact form.</p>
+            <Button className="gap-6 bg-accent w-50 cursor-pointer w-min shadow-md border-primary border-3 text-xl py-6 ps-10 pe-[5px] hover:bg-muted-accent font-normal rounded-full md:row-start-3 md:col-start-2 lg:row-start-auto">
+              <Link href={'/cv'}>Read my CV</Link>
+              <div className="w-max bg-primary p-[7px] rounded-full">
+                <Image src="/images/cv.png" alt="cv icon" width={25} height={25} />
+              </div>
+            </Button>
+          </div>
+        </main>
+      </div>
+    </>
+  )
 }
