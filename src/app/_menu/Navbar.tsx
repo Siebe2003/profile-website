@@ -17,10 +17,10 @@ function Navbar() {
           <Image src="/images/logo-placeholder-image.png" alt="logo" width="70" height="70"/>
         </Link>
       </div>
-      <ul className="grid grid-cols-4 h-full gap-10 w-100 xl:w-200 collapse md:visible">
+      <ul className={`md:shadow-none md:h-full md:relative md:flex md:items-stretch md:inset-0 md:gap-10 md:w-100 xl:w-200 bg-(--primary) shadow-sm w-50 -left-50 top-16 fixed gap-0 transition-[left] duration-150 ease-in-out ${!isCollapsed && 'left-0'}`}>
         <NavItem name={"Home"} href={"/"}/>
         <NavItem name={"Hobbies"} href={"/hobbies"}/>
-        <NavItem name={"CV"} href={"#"}/>
+        <NavItem name={"CV"} href={"/cv"}/>
         <NavItem name={"Contact"} href={"#"}/>
       </ul>
       <button className="cursor-pointer grow flex justify-end md:collapse" onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -37,13 +37,6 @@ function Navbar() {
           </svg>
         }
       </button>
-      <ul
-        className={`md:hidden bg-(--primary) shadow-sm w-50 -left-50 top-16 fixed gap-0 transition-[left] duration-150 ease-in-out ${!isCollapsed && 'left-0'}`}>
-        <NavItem name={"Home"} href={"/"}/>
-        <NavItem name={"Hobbies"} href={"/hobbies"}/>
-        <NavItem name={"CV"} href={"#"}/>
-        <NavItem name={"Contact"} href={"#"}/>
-      </ul>
     </nav>
   )
 }
