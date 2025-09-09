@@ -1,8 +1,12 @@
 import { PropsWithChildren } from "react"
 
-function Section({children}: PropsWithChildren) {
+interface SectionProps extends PropsWithChildren {
+  className?: string
+}
+
+function Section({children, className}: SectionProps) {
   return (
-    <section className='p-4 bg-(--background) rounded shadow'>
+    <section className={`p-6 bg-(--background) rounded shadow ${className}`}>
       {children}
     </section>
   )

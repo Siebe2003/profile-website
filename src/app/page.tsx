@@ -17,7 +17,7 @@ export default function Home() {
           this website is to show who I am. This includes my interests, skills and accomplishments. It is made by me
           to give it the flare that fits with my personality. If you would have any questions for me, feel free to
           contact me using my email or the contact form.</p>
-        <Button className="gap-6 bg-accent w-50 cursor-pointer w-min shadow-md border-primary border-3 text-xl py-6 ps-10 pe-[5px] hover:bg-muted-accent font-normal rounded-full md:row-start-3 md:col-start-2 lg:row-start-auto">
+        <Button className="gap-6 w-50 cursor-pointer w-min shadow-md border-primary border-3 text-xl py-6 ps-10 pe-[5px] font-normal rounded-full md:row-start-3 md:col-start-2 lg:row-start-auto">
           <Link href={'/cv'}>Read my CV</Link>
           <div className="w-max bg-primary p-[7px] rounded-full">
             <Image src="/images/cv.png" alt="cv icon" width={25} height={25} />

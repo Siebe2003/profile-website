@@ -1,4 +1,4 @@
-export interface Props {
+interface SkillProps {
   name: string
   value: SkillValue
 }
@@ -13,7 +13,7 @@ const widthMap = {
 
 export type SkillValue = keyof typeof widthMap
 
-function Skill({name, value}: Props) {
+function Skill({name, value}: SkillProps) {
   return (
     <div>
       <h3 className='text-lg font-bold'>{name}</h3>

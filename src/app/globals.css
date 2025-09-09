@@ -149,3 +149,10 @@ h2 {
   margin-bottom: 0.25em;
 }
 
+button {
+  background-color: var(--accent);
+}
+
+button:hover {
+  background-color: var(--muted-accent);
+}
