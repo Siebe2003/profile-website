@@ -38,7 +38,10 @@ const Page: FunctionComponent = () => {
 
       <Section>
         <h2>Education</h2>
-        <Education course='Graduate Degree Programming' startDate={new Date(2023, 1, 9)} endDate={new Date(2025, 10, 9)} school='Thomas More' location='Antwerpsestraat 99, 2500 Lier' />
+        <div className='flex flex-col gap-6'>
+          <Education course='Graduate Degree Programming' startDate={new Date(2023, 1, 9)} endDate={new Date(2025, 10, 9)} school='Thomas More' location='Antwerpsestraat 99, 2500 Lier' />
+          <Education course='Graduate Degree Programming' startDate={new Date(2023, 1, 9)} endDate={new Date(2025, 10, 9)} school='Thomas More' location='Antwerpsestraat 99, 2500 Lier' />
+        </div>
       </Section>
       </div>
     </main>
