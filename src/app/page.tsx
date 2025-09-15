@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Carousel from '@/app/_home/Carousel'
 import {Button} from '@/components/ui/button'
 import Image from 'next/image'
-import MainContentWrapper from './_main/MainContentWrapper'
 
 
 export default function Home() {

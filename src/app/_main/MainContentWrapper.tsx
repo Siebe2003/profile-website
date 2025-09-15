@@ -2,10 +2,6 @@
 
 import { PropsWithChildren } from "react";
 
-export interface Props {
-  
-}
-
 function MainContentWrapper({children}: PropsWithChildren) {
   return (
     <>
