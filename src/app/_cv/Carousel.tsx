@@ -28,13 +28,13 @@ const Carousel: FunctionComponent = () => {
         direction={'horizontal'}
       >
         <SwiperSlide>
-          <img src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' />
+          <Image src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' height={2000} width={1000} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' />
+          <Image src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' height={2000} width={1000} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' />
+          <Image src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' height={2000} width={1000} />
         </SwiperSlide>
         <CarouselButton navigationDirection={'prev'} onClickHandler={() => swiperRef.current!.slidePrev()} />
         <CarouselButton navigationDirection={'next'} onClickHandler={() => swiperRef.current!.slideNext()} />
