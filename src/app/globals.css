@@ -32,6 +32,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-header: var(--primary-header);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -58,6 +59,7 @@
   --popover-foreground: oklch(0.13 0.028 261.692);
   --primary: #F7DBF0;
   --primary-foreground: oklch(0.13 0.028 261.692);
+  --primary-header: #8e76c8;
   --secondary: #BEAEE2;
   --secondary-foreground: oklch(0.21 0.034 264.665);
   --muted: oklch(0.967 0.003 264.542);
@@ -132,9 +134,28 @@
   a {
     @apply cursor-pointer;
   }
+  h2 {
+    @apply text-primary-header;
+  }
+  button {
+    @apply cursor-pointer
+  }
 }
 
 .swiper-pagination-bullet {
   background-color: var(--primary) !important;
 }
 
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+button {
+  background-color: var(--accent);
+}
+
+button:hover {
+  background-color: var(--muted-accent);
+}

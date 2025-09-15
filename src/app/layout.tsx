@@ -4,6 +4,7 @@ import "./globals.css"
 import "./main.css"
 import React from 'react'
 import Navbar from '@/app/_menu/Navbar'
+import MainContentWrapper from "./_main/MainContentWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`}>
-          <header className="relative z-30">
-            <Navbar />
-          </header>
+        <header className="relative z-30">
+          <Navbar />
+        </header>
+        <MainContentWrapper>
           {children}
+        </MainContentWrapper>
       </body>
     </html>
   );

@@ -12,3 +12,13 @@
     width: 100%;
     z-index: 1;
 }
+
+.project-pagination {
+    bottom: -30px !important;
+}
+
+.image-swiper-button-next {
+    position: absolute;
+    left: 0px;
+    background-color: blue;
+}
