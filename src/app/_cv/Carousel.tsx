@@ -37,9 +37,8 @@ const Carousel: FunctionComponent = () => {
           <img src="/images/Screenshot 2025-09-10 133108.png" alt="item" className='w-full' />
         </SwiperSlide>
         <CarouselButton navigationDirection={'prev'} onClickHandler={() => swiperRef.current!.slidePrev()} />
-        <CarouselButton navigationDirection={'next'} onClickHandler={() => swiperRef.current!.slidePrev()} />
+        <CarouselButton navigationDirection={'next'} onClickHandler={() => swiperRef.current!.slideNext()} />
       </Swiper>
-      
     </div>
   )
 }
