@@ -1,17 +1,10 @@
-'use client'
-
 import { PropsWithChildren } from "react";
 
 function MainContentWrapper({children}: PropsWithChildren) {
   return (
-    <>
-      <video autoPlay muted loop id="myVideo">
-        <source src="/videos/hero-background.mp4" type="video/mp4"/>
-      </video>
-      <div className="flex items-center justify-items-center pt-16 min-h-screen">
-          {children}
-      </div>
-    </>
+    <div className="flex items-center justify-items-center pt-nav min-h-screen bg-[url(/images/background-pattern-3.jpg)] bg-cover bg-no-repeat bg-top-right 2xl:bg-contain">
+        {children}
+    </div>
   )
 }
 

@@ -1,49 +1,99 @@
-import React, {FunctionComponent} from 'react'
-import Section from '../_cv/Section'
-import Skill from '../_cv/Skill'
-import Project from '../_cv/Project'
-import Education from '../_cv/Education'
+import React, { FunctionComponent } from "react"
+import Section from "../_cv/Section"
+import Skill, { SkillValue } from "../_cv/Skill"
+import Image from "next/image"
+import { TbDownload } from "react-icons/tb"
+import ContactInfo from "./ContactInfo"
+
+interface ISkill {
+  name: string
+  value: SkillValue
+}
+
+const skills: ISkill[] = [
+  {
+    name: "React",
+    value: 5
+  },
+  {
+    name: "Next.js",
+    value: 5
+  },
+  {
+    name: ".NET",
+    value: 5
+  },
+  {
+    name: "Kotlin",
+    value: 3
+  },
+  {
+    name: "PHP",
+    value: 1
+  },
+  {
+    name: "Drupal",
+    value: 3
+  },
+  {
+    name: "Git",
+    value: 4
+  },
+  {
+    name: "Bitbucket",
+    value: 2
+  },
+]
 
 const Page: FunctionComponent = () => {
   return (
-    <main className='p-4 md:p-10 xl:px-20 2xl:px-40 3xl:px-60 lg:grid lg:grid-cols-[1fr_70%] gap-x-6'>
-      <div className='flex flex-col gap-4 md:gap-6 mb-4 md:mb-6 lg:mb-0'>
-        <Section>
-          <h2>Profile</h2>
-          <p>A passionate programmer with a diligent work ethic. I am always ready to learn new technologies within the field. As a structured individual, you can count of me to deliver my work in time.</p>
-        </Section>
-
-        <Section>
-          <h2>Skills</h2>
-          <div className='flex flex-col gap-4'>
-            <Skill name='Javascript' value={5} />
-            <Skill name='C#' value={5} />
-            <Skill name='Java' value={3} />
-            <Skill name='PHP' value={2} />
-            <Skill name='Python' value={1} />
+    <main className="flex flex-col p-4 md:p-10 md:grid md:grid-cols-[1fr_1fr] md:grid-rows-[auto_auto_auto] gap-4 lg:gap-6 lg:p-6">
+      <section className="bg-surface rounded-sm col-start-1 row-start-1 col-span-2 py-6 md:ms-[12%] md:grid md:grid-cols-[24%_auto_12%] lg:ms-[10%] lg:grid-cols-[20%_auto_10%] md:px-0">
+        <div className="flex-1 md:translate-x-[-50%]">
+          <Image
+            width={200}
+            height={200}
+            src="/images/cv-portrait.png"
+            alt="Resume photo"
+            className="w-[40%] mx-auto mb-6 rounded-full md:w-full md:mb-0 shadow-secondary"
+          />
+        </div>
+        <div className="flex flex-col flex-3 justify-center">
+          <h2 className="text-center text-4xl font-bold text-primary">Siebe Verhaegen</h2>
+          <div className="text-center leading-10">Software Developer</div>
+          <div className="text-center hidden mt-6 md:block">
+            <a className="button" href="/images/cv-portrait.png" download>
+              <TbDownload className="text-xl" />Download Resume
+            </a>
           </div>
-        </Section>
-      </div>
-
-      <div className='flex flex-col gap-4 md:gap-6'>
-        <Section>
-          <h2>Projects</h2>
-          <div className='flex flex-col lg:grid lg:grid-cols-2 gap-4 gap-x-10 w-full'>
-            <Project name='Group trip web application' additionalInfo={['C#', 'Razor', 'Group project (agile)']} />
-            <Project name='Board game review web application' additionalInfo={['Javascript', 'React', 'Next.js', 'solo project']} />
-            <Project name='News website' additionalInfo={['Drupal', 'PHP', 'Twig', 'solo project']} />
-            <Project name='News website' additionalInfo={['Drupal', 'PHP', 'Twig', 'solo project']} />
+        </div>
+        <div className="md:hidden">
+          <ContactInfo />
+          <div className="text-center md:hidden">
+            <a className="button" href="/images/cv-portrait.png" download>
+              <TbDownload className="text-xl" />Download Resume
+            </a>
           </div>
-        </Section>
+        </div>
+      </section>
 
-        <Section>
-          <h2>Education</h2>
-          <div className='flex flex-col gap-6'>
-            <Education course='Graduate Degree Programming' startDate={new Date(2023, 1, 9)} endDate={new Date(2025, 10, 9)} school='Thomas More' location='Antwerpsestraat 99, 2500 Lier' />
-            <Education course='Graduate Degree Programming' startDate={new Date(2023, 1, 9)} endDate={new Date(2025, 10, 9)} school='Thomas More' location='Antwerpsestraat 99, 2500 Lier' />
-          </div>
-        </Section>
-      </div>
+      <Section heading="Profile" className="col-start-1 row-start-2">
+        <p>
+          A passionate programmer with a diligent work ethic. I am always ready
+          to learn new technologies within the field. As someone with a keen eye for detail, 
+          you can count on me to deliver code that is functional, clear and optimized.
+        </p>
+      </Section>
+
+      <Section heading="Contact" className="hidden col-start-2 row-start-2 md:block">
+        <ContactInfo />
+      </Section>
+
+      <Section heading="Skills" className="col-start-1 row-start-3 col-span-2">
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-10">
+          {skills.map(s => <Skill key={s.name} name={s.name} value={s.value} />)}
+        </div>
+      </Section>
     </main>
   )
 }

@@ -6,13 +6,6 @@
     z-index: -1;
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
 .project-pagination {
     bottom: -30px !important;
 }
