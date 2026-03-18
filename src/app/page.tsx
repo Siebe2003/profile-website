@@ -1,24 +1,23 @@
-import React from 'react'
-import Link from 'next/link'
-import Carousel from '@/app/_home/Carousel'
-import {Button} from '@/components/ui/button'
-import Image from 'next/image'
+import React from "react"
+import Link from "next/link"
+import {Button} from "@/components/ui/button"
+import Image from "next/image"
 
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center sm:items-start md:grid md:grid-rows-[auto_auto_auto] md:grid-cols-2 md:gap-10 lg:flex lg:flex-row lg:gap-15 xl:gap-20 3xl:gap-30 md:px-20 xl:px-30 2xl:px-60">
-      <Carousel />
-      <div className="text-image-foreground flex flex-col gap-10 items-center p-10 md:p-0 order-first md:order-last md:grid md:grid-cols-subgrid md:grid-rows-subgrid md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-3 lg:flex lg:flex-col lg:row-start-auto lg:col-start-auto lg:gap-10 lg:items-start 3xl:gap-10">
-        <h1 className="text-5xl text-center md:mb-0 md:col-span-2 lg:text-start 3xl:text-6xl">My portfolio</h1>
-        <p className="text-center md:text-start md:row-start-2 md:col-start-2 md:h-full lg:row-start-auto">Hello and welcome to my portfolio website. My name is Siebe Verhaegen and I&#39;m a student of Thomas
+    <main className="flex flex-col items-center lg:flex-row-reverse lg:px-20 lg:gap-20 2xl:gap-30 2xl:px-30 3xl:gap-50">
+      <Image className="w-50 mt-10 md:w-70 lg:mt-0 lg:w-auto lg:flex-3" src="/images/hero-section-portrait.png" width="600" height="600" alt="Image of me" />
+      <div className="text-foreground flex flex-col gap-10 items-center p-8 md:p-20 md:pt-10 lg:p-0 lg:items-start lg:flex-5 2xl:gap-16">
+        <h1 className="text-4xl text-center leading-12 font-bold md:text-5xl md:leading-15 md:text-start 2xl:text-6xl 2xl:leading-20 3xl:text-7xl"><span className="text-primary">Welcome</span> to my Portfolio Website</h1>
+        <p className="text-center md:text-start 3xl:text-lg">Hello and welcome to my portfolio website. My name is Siebe Verhaegen and I&#39;m a student of Thomas
           More in Lier. I follow a course in programming and aspire to be a great software developer. The purpose of
           this website is to show who I am. This includes my interests, skills and accomplishments. It is made by me
           to give it the flare that fits with my personality. If you would have any questions for me, feel free to
           contact me using my email or the contact form.</p>
-        <Button className="gap-6 w-50 cursor-pointer w-min shadow-md border-primary border-3 text-xl py-6 ps-10 pe-[5px] font-normal rounded-full md:row-start-3 md:col-start-2 lg:row-start-auto">
-          <Link href={'/cv'}>Read my CV</Link>
-          <div className="w-max bg-primary p-[7px] rounded-full">
+        <Button className="gap-6 cursor-pointer w-min border-primary border-3 text-xl py-6 ps-10 pe-1.25 font-normal rounded-full">
+          <Link href={"/cv"}>Read my CV</Link>
+          <div className="w-max bg-primary p-1.75 rounded-full">
             <Image src="/images/cv.png" alt="cv icon" width={25} height={25} />
           </div>
         </Button>

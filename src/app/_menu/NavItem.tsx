@@ -1,29 +1,36 @@
-'use client'
+"use client"
 
-import {FunctionComponent, useState} from 'react'
-import Link from 'next/link'
-import * as React from 'react'
-import {usePathname} from 'next/navigation'
+import {FunctionComponent, useState} from "react"
+import Link from "next/link"
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
 interface NavItemProps {
   name: string
   href: string
+  isActive: boolean
 }
 
-const NavItem: FunctionComponent<NavItemProps> = ({name, href}) => {
-  const pathname = usePathname()
-  const isActive = pathname === href
-
+const NavItem: FunctionComponent<NavItemProps> = ({name, href, isActive}) => {
   const [hover, setHover] = useState(false)
 
   return (
-    <li data-active={isActive} className='p-1 data-[active=true]:bg-(--secondary) hover:bg-(--secondary) md:hover:bg-transparent md:data-[active=true]:bg-transparent md:p-0 md:flex-1'
+    <li data-active={isActive} 
+        className={cn(
+          "p-1 hover:bg-primary md:hover:bg-transparent md:p-0 md:flex-1 active:bg-primary active:text-primary-foreground md:active:bg-transparent md:active:text-primary",
+          isActive ? "bg-primary text-primary-foreground md:bg-transparent md:text-primary" : "hover:text-primary-foreground md:hover:text-primary bg-transparent text-foreground"
+        )}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
-      <Link href={href} className='flex w-full h-full justify-center items-center relative'>
+      <Link href={href} className="flex w-full h-full justify-center items-center relative">
         {name}
-        <span className={(hover || isActive ? 'w-full' : 'w-0') + ' hidden md:block bg-(--foreground) absolute bottom-0 h-[4px] transition-[width] duration-200 ease-in-out'}></span>
-      </Link>
+        <span 
+          className={cn(
+            hover || isActive ? "w-full bg-primary" : "w-0 bg-foreground", 
+            "hidden md:block absolute bottom-0 h-1 transition-[width] duration-200 ease-in-out"
+          )}
+        />
+    </Link>
     </li>
   )
 }
