@@ -1,16 +1,17 @@
-import React from 'react'
+import { IBoardGame } from "@/interfaces/BoardGame"
+import React from "react"
+import TopTenListItem from "./TopTenListItem"
 
 async function TopTenList() {
-  const response = await fetch("http://localhost:3000/api/topTenList")
-  const data = await response.json()
-  const response2 = await fetch("http://localhost:3000/api/collection?ids=" + data.items.join(","))
+  const topTenResponse = await fetch("http://localhost:3000/api/topTenList")
+  const topTenData = await topTenResponse.json()
+  const collectionResponse = await fetch("http://localhost:3000/api/collection?ids=" + topTenData.items.join(","))
 
-  const data2 = await response2.json()
-  console.log(data2)
+  const collectionData: IBoardGame[] = await collectionResponse.json()
 
   return (
-    <div>
-      {data != undefined}
+    <div className="grid grid-cols-2">
+      {collectionData.map(x => <TopTenListItem key={x.id} item={x} />)}
     </div>
   )
 }

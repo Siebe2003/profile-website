@@ -8,7 +8,7 @@ import {Autoplay, Pagination} from "swiper/modules"
 import "swiper/css";
 import "swiper/css/pagination"
 import Image from "next/image"
-import CarouselButton from "@/app/_home/CarouselButton"
+import CarouselButton from "@/app/about/CarouselButton"
 
 const Carousel: FunctionComponent = () => {
   const swiperRef = useRef<SwiperType | null>(null)

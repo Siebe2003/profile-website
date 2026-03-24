@@ -1,5 +1,5 @@
-import Section from "../_cv/Section"
-import Skill, { SkillValue } from "../_cv/Skill"
+import Section from "./Section"
+import Skill, { SkillValue } from "./Skill"
 import Image from "next/image"
 import { TbDownload } from "react-icons/tb"
 import ContactInfo from "./ContactInfo"

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Carousel from "../_home/Carousel";
+import Carousel from "./Carousel";
 import TopTenList from "./TopTenList";
 import TopTenListSkeleton from "./TopTenListSkeleton";
 

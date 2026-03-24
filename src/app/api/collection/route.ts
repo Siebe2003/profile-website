@@ -1,38 +1,24 @@
-import { setTimeout } from 'timers/promises';
-import { convertXML } from 'simple-xml-to-json'
-import { NextRequest, NextResponse } from 'next/server';
-
-type MixedData = { name: { content: string } } | { comment: { content: string } } | { image: { content: string } }
-
-function checkTypeGuard(obj: object): obj is MixedData {
-  return "name" in obj || "comment" in obj || "image" in obj;
-}
+import { setTimeout } from "timers/promises"
+import { NextRequest, NextResponse } from "next/server"
+import { XMLParser } from "fast-xml-parser"
+import { IBoardGame } from "@/interfaces/BoardGame"
 
 type ApiCallData = {
   items: {
-    children: {
-      item: {
-        children: MixedData[]
+    item: {
+      name: {
+        "#text": string
       }
+      image: string
+      comment: string
+      objectid: string
     }[]
   }
 }
-
-type Children = {
-  name: {content: string}
-  image: {content: string}
-  comment: {content: string}
-}
-
-
-type ResponseData = {
-  name: string
-  image: string
-  comment: string
-}
  
-export async function GET(request: NextRequest): Promise<NextResponse<any>> {
+export async function GET(request: NextRequest): Promise<NextResponse<IBoardGame[]>> {
   const ids = request.nextUrl.searchParams.get("ids")
+  const sortingArray = ids!.split(",")
 
   let response = await fetch(
       "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + ids,
@@ -58,18 +44,20 @@ export async function GET(request: NextRequest): Promise<NextResponse<any>> {
   }
 
   const xmlText = await response.text();
-  const jsonResponse = convertXML(xmlText) as ApiCallData
-  const filteredChildren = jsonResponse.items.children.map(x => {
-    const result: Record<string, string> = {};
-    
-    for (const child of x.item.children) {
-      if (checkTypeGuard(child)) {
-        const [[key, value]] = Object.entries(child);
-        result[key] = value.content;
-      }
-    }
-    
-    return result;
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: "",
   })
-  return NextResponse.json({ items: filteredChildren }, {status: response.status})
+  const obj = parser.parse(xmlText) as ApiCallData
+  const output: IBoardGame[] = obj.items.item.sort(function (a, b) {
+    return sortingArray.indexOf(a.objectid) - sortingArray.indexOf(b.objectid)
+  }).map((x, index) => ({
+    id: x.objectid,
+    name: x.name["#text"],
+    image: x.image,
+    comment: x.comment,
+    ranking: index + 1
+  }))
+      
+  return NextResponse.json(output, {status: response.status})
 }

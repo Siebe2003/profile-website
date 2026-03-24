@@ -1,6 +1,6 @@
-import { setTimeout } from 'timers/promises';
-import { convertXML } from 'simple-xml-to-json'
-import { NextResponse } from 'next/server';
+import { setTimeout } from "timers/promises";
+import { convertXML } from "simple-xml-to-json"
+import { NextResponse } from "next/server";
 
 type ApiCallData = {
   user: {
