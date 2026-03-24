@@ -69,7 +69,7 @@ function AboutPage() {
         friends, getting in each other&rsquo;s way, developing strategies
         together, are all part of the fun. Since my friends and I do not go out
         together very often, playing board games is a great way for us to spend
-        time together. {process.env.BGG_API_KEY}
+        time together. {process.env.BGG_API_KEY || "Key not found"}
       </p>
       <Suspense fallback={<TopTenListSkeleton />}>
         <TopTenList />
