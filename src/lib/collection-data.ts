@@ -29,7 +29,7 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
       method: "GET",
       headers: {
         "content-type": "application/xml",
-        "Authorization": process.env.BGG_API_KEY!
+        "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
       }
     })
 
@@ -41,7 +41,7 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
         method: "GET",
         headers: {
           "content-type": "application/xml",
-          "Authorization": process.env.BGG_API_KEY!
+          "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
         }
       })
     }

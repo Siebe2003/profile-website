@@ -25,7 +25,7 @@ export async function getTopTenListIds(): Promise<string[]> {
       method: "GET",
       headers: {
         "content-type": "application/xml",
-        "Authorization": process.env.BGG_API_KEY!
+        "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
       }
     })
 
@@ -35,7 +35,7 @@ export async function getTopTenListIds(): Promise<string[]> {
         method: "GET",
         headers: {
           "content-type": "application/xml",
-          "Authorization": process.env.BGG_API_KEY!
+          "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
         }
       })
     }
