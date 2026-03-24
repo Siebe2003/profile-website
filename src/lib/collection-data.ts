@@ -16,21 +16,14 @@ type ApiCallData = {
 }
  
 export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
-  const queryParameter = ids.join(",")
-
-  let response = await fetch(
-      "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
-    {
-    method: "GET",
-    headers: {
-      "content-type": "application/xml",
-      "Authorization": process.env.BGG_API_KEY!
+  try {
+    if (ids.length === 0) {
+      throw new Error()
     }
-  })
 
-  if (response.status === 202) {
-    await setTimeout(5000)
-    response = await fetch(
+    const queryParameter = ids.join(",")
+
+    let response = await fetch(
         "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
       {
       method: "GET",
@@ -39,23 +32,38 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
         "Authorization": process.env.BGG_API_KEY!
       }
     })
-  }
 
-  const xmlText = await response.text();
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "",
-  })
-  const obj = parser.parse(xmlText) as ApiCallData
-  const output: IBoardGame[] = obj.items.item.sort(function (a, b) {
-    return ids.indexOf(a.objectid) - ids.indexOf(b.objectid)
-  }).map((x, index) => ({
-    id: x.objectid,
-    name: x.name["#text"],
-    image: x.image,
-    comment: x.comment,
-    ranking: index + 1
-  }))
-      
-  return output
+    if (response.status === 202) {
+      await setTimeout(5000)
+      response = await fetch(
+          "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
+        {
+        method: "GET",
+        headers: {
+          "content-type": "application/xml",
+          "Authorization": process.env.BGG_API_KEY!
+        }
+      })
+    }
+
+    const xmlText = await response.text();
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: "",
+    })
+    const obj = parser.parse(xmlText) as ApiCallData
+    const output: IBoardGame[] = obj.items.item.sort(function (a, b) {
+      return ids.indexOf(a.objectid) - ids.indexOf(b.objectid)
+    }).map((x, index) => ({
+      id: x.objectid,
+      name: x.name["#text"],
+      image: x.image,
+      comment: x.comment,
+      ranking: index + 1
+    }))
+        
+    return output
+  } catch {
+    return []
+  }
 }
