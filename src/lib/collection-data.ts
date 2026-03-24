@@ -1,5 +1,4 @@
 import { setTimeout } from "timers/promises"
-import { NextRequest, NextResponse } from "next/server"
 import { XMLParser } from "fast-xml-parser"
 import { IBoardGame } from "@/interfaces/BoardGame"
 
@@ -16,12 +15,11 @@ type ApiCallData = {
   }
 }
  
-export async function GET(request: NextRequest): Promise<NextResponse<IBoardGame[]>> {
-  const ids = request.nextUrl.searchParams.get("ids")
-  const sortingArray = ids!.split(",")
+export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
+  const queryParameter = ids.join(",")
 
   let response = await fetch(
-      "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + ids,
+      "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
     {
     method: "GET",
     headers: {
@@ -33,7 +31,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<IBoardGame
   if (response.status === 202) {
     await setTimeout(5000)
     response = await fetch(
-        "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + ids,
+        "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
       {
       method: "GET",
       headers: {
@@ -50,7 +48,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<IBoardGame
   })
   const obj = parser.parse(xmlText) as ApiCallData
   const output: IBoardGame[] = obj.items.item.sort(function (a, b) {
-    return sortingArray.indexOf(a.objectid) - sortingArray.indexOf(b.objectid)
+    return ids.indexOf(a.objectid) - ids.indexOf(b.objectid)
   }).map((x, index) => ({
     id: x.objectid,
     name: x.name["#text"],
@@ -59,5 +57,5 @@ export async function GET(request: NextRequest): Promise<NextResponse<IBoardGame
     ranking: index + 1
   }))
       
-  return NextResponse.json(output, {status: response.status})
+  return output
 }

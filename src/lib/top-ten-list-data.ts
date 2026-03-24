@@ -1,6 +1,5 @@
 import { setTimeout } from "timers/promises";
 import { convertXML } from "simple-xml-to-json"
-import { NextResponse } from "next/server";
 
 type ApiCallData = {
   user: {
@@ -10,19 +9,15 @@ type ApiCallData = {
 
 type TopChild = {
   top: {
-      children: {
-        item: {
-          id: string
-        }
-      }[]
-    }
+    children: {
+      item: {
+        id: string
+      }
+    }[]
   }
-
-type ResponseData = {
-  items: object | undefined
 }
  
-export async function GET(): Promise<NextResponse<ResponseData>> {
+export async function getTopTenListIds(): Promise<string[]> {
   let response = await fetch(
     "https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1",
     {
@@ -48,5 +43,5 @@ export async function GET(): Promise<NextResponse<ResponseData>> {
   const jsonResponse = convertXML(xmlText) as ApiCallData
   const topTenList = jsonResponse.user.children.find(x => Object.hasOwn(x, "top")) as TopChild
   
-  return NextResponse.json({ items: topTenList.top.children.map(x => x.item.id) }, {status: response.status})
+  return topTenList.top.children.map(x => x.item.id)
 }
