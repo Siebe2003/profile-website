@@ -5,22 +5,24 @@ import TopTenListSkeleton from "./TopTenListSkeleton";
 
 function AboutPage() {
   return (
-    <main className="p-6 flex flex-col gap-4">
-      <h2 className="text-4xl font-bold text-center">About me</h2>
-      <Carousel />
-      <p className="">
-        Hello! I&#39;m Siebe Verhaegen and I&#39;m here to talk more about myself.
-        I&#39;m a developer living in the city Ranst. Despite being a recent
-        graduate, I&#39;m by no means inexperienced in the field. Beginning from
-        my first year in secondary education, the newly created course STEM was
-        the course I chose to follow, as it was new and exciting. It was during
-        the fourth year were I came in contact with coding applications. I never
-        knew I had a fondness for coding until then, which opened my eyes to a
-        newfound passion. It was after that year, that I chose to enrol in a new
-        school that included a course Applied Computer Science and I never
-        looked back since.
-      </p>
-      <p>
+    <div className="p-6 md:p-16">
+      <h2 className="header">About me</h2>
+      <div className="md:grid mb-4 md:grid-cols-2 md:gap-x-6">
+        <Carousel />
+        <p>
+          Hello! I&#39;m Siebe Verhaegen and I&#39;m here to talk more about myself.
+          I&#39;m a developer living in the city Ranst. Despite being a recent
+          graduate, I&#39;m by no means inexperienced in the field. Beginning from
+          my first year in secondary education, the newly created course STEM was
+          the course I chose to follow, as it was new and exciting. It was during
+          the fourth year were I came in contact with coding applications. I never
+          knew I had a fondness for coding until then, which opened my eyes to a
+          newfound passion. It was after that year, that I chose to enrol in a new
+          school that included a course Applied Computer Science and I never
+          looked back since.
+        </p>
+      </div>
+      <p className="mb-10">
         Although I have yet to be an employee for a company, I have participated
         in a 14-week long internship program following the school subject called
         &ldquo;IT-Professional&ldquo;. This internship took place within the
@@ -41,8 +43,8 @@ function AboutPage() {
         picked up during this time. And because I&ldquo;m someone who loves
         learning new technologies, I truly enjoyed doing so.
       </p>
-      <h3 className="text-2xl font-bold text-center">My interests</h3>
-      <p>
+      <h2 className="header">My interests</h2>
+      <p className="mb-10">
         For me, there are two hobbies that immediatly come to mind: Board games
         and running. I have been running for about one and a half years now.
         Every Monday, Wednesday and Friday, I like to run a predetermined amount
@@ -71,10 +73,11 @@ function AboutPage() {
         together very often, playing board games is a great way for us to spend
         time together.
       </p>
+      <h2 className="text-secondary-foreground text-3xl font-bold text-center mb-6 header leading-10">Top 10 games I&rsquo;ve Played</h2>
       <Suspense fallback={<TopTenListSkeleton />}>
         <TopTenList />
       </Suspense>
-    </main>
+    </div>
   );
 }
 

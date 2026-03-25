@@ -54,7 +54,7 @@ const skills: ISkill[] = [
 
 function CvPage() {
   return (
-    <main className="flex flex-col p-4 md:grid md:grid-cols-[1fr_1fr] md:grid-rows-[auto_auto_auto] gap-4 lg:gap-6 lg:p-6 2xl:px-50 2xl:py-10">
+    <div className="flex flex-col p-4 md:grid md:grid-cols-[1fr_1fr] md:grid-rows-[auto_auto_auto] gap-4 lg:gap-6 lg:p-6 2xl:px-50 2xl:py-10">
       <section className="bg-surface rounded-sm col-start-1 row-start-1 col-span-2 py-6 md:ms-[12%] md:grid md:grid-cols-[24%_auto_12%] lg:ms-[6%] lg:grid-cols-[12%_auto_6%] 3xl:ms-[5%] 3xl:grid-cols-[10%_auto_5%] md:px-0 md:inset-shadow-[0px_0px_15px_1px] md:inset-shadow-secondary">
         <div className="flex-1 md:translate-x-[-50%]">
           <Image
@@ -103,7 +103,7 @@ function CvPage() {
           {skills.map(s => <Skill key={s.name} name={s.name} value={s.value} />)}
         </div>
       </Section>
-    </main>
+    </div>
   )
 }
 

@@ -16,11 +16,11 @@ const Carousel: FunctionComponent = () => {
   
 
   return (
-    <div className="relative w-[300px] h-[500px] mx-auto block" onMouseOver={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div className="relative w-full mx-auto block aspect-3/5 md:mx-0" onMouseOver={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <CarouselButton navigationDirection={"prev"} onClickHandler={() => swiperRef.current!.slidePrev()} isHovered={isHovered} />
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        cssMode={true}
+        cssMode={false}
         pagination={{
           clickable: true
         }}

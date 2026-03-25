@@ -6,7 +6,7 @@ import Image from "next/image"
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center lg:flex-row-reverse lg:px-20 lg:gap-20 2xl:gap-30 2xl:px-30 3xl:gap-50">
+    <div className="flex flex-col items-center lg:flex-row-reverse lg:px-20 lg:gap-20 2xl:gap-30 2xl:px-30 3xl:gap-50">
       <Image className="w-50 mt-10 md:w-70 lg:mt-0 lg:w-auto lg:flex-3" src="/images/hero-section-portrait.png" width="600" height="600" alt="Image of me" />
       <div className="text-foreground flex flex-col gap-10 items-center p-8 md:p-20 md:pt-10 lg:p-0 lg:items-start lg:flex-5 2xl:gap-16">
         <h1 className="text-4xl text-center leading-12 font-bold md:text-5xl md:leading-15 md:text-start 2xl:text-6xl 2xl:leading-20 3xl:text-7xl"><span className="text-primary">Welcome</span> to my Portfolio Website</h1>
@@ -23,6 +23,6 @@ export default function Home() {
           </div>
         </Button>
       </div>
-    </main>
+    </div>
   )
 }
