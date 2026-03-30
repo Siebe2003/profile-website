@@ -1,4 +1,4 @@
-import { setTimeout } from "timers/promises";
+import { setTimeout } from "timers/promises"
 import { convertXML } from "simple-xml-to-json"
 
 type ApiCallData = {
@@ -31,8 +31,6 @@ export async function getTopTenListIds(): Promise<string[]> {
         "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
       }
     })
-
-    console.log(response)
 
     while (response.status === 202 && retries < maxRetries) {
       await setTimeout(5000)

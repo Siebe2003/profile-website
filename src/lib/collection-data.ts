@@ -26,30 +26,29 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
 
     const queryParameter = ids.join(",")
 
-    let response = await fetch(
-        "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
-      {
+    let response = await fetch(`https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=${queryParameter}&_t=${Date.now()}`, {
       method: "GET",
       headers: {
         "content-type": "application/xml",
-        "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
-      }
+        "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!,
+      },
     })
 
     console.log(response)
 
     while (response.status === 202 && retries < maxRetries) {
       await setTimeout(5000)
-      response = await fetch(
-          "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
-        {
+      response = await fetch(`https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=${queryParameter}&_t=${Date.now()}`, {
         method: "GET",
         headers: {
           "content-type": "application/xml",
-          "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
-        }
+          "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!,
+        },
       })
+
       retries++
+
+      console.log(response)
     }
 
     const xmlText = await response.text();
@@ -70,6 +69,8 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
         
     return output
   } catch {
+    console.error("Datafetching aborted!!")
+    
     return []
   }
 }
