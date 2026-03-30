@@ -16,6 +16,9 @@ type ApiCallData = {
 }
  
 export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
+  let retries = 0
+  const maxRetries = 3
+
   try {
     if (ids.length === 0) {
       throw new Error()
@@ -33,7 +36,9 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
       }
     })
 
-    if (response.status === 202) {
+    console.log(response)
+
+    while (response.status === 202 && retries < maxRetries) {
       await setTimeout(5000)
       response = await fetch(
           "https://boardgamegeek.com/xmlapi2/collection?username=flyingviper&id=" + queryParameter,
@@ -44,6 +49,7 @@ export async function getCollection(ids: string[]): Promise<IBoardGame[]> {
           "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
         }
       })
+      retries++
     }
 
     const xmlText = await response.text();

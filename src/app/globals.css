@@ -44,6 +44,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --spacing-nav: calc(var(--spacing) * 12);
+  --spacing-grid-item-1: calc(var(--spacing) * 4);
+  --spacing-grid-item-2: calc(var(--spacing) * 10);
+  --spacing-grid-item-3: calc(var(--spacing) * 6);
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
@@ -161,7 +164,7 @@
   }
 
   .header {
-    @apply text-secondary-foreground text-3xl font-bold text-center mb-4 py-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%];
+    @apply text-secondary-foreground text-2xl font-bold text-center mb-4 pb-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%] md:text-3xl md:pb-2 md:pt-1;
   }
 }
 

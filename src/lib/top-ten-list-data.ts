@@ -18,6 +18,9 @@ type TopChild = {
 }
  
 export async function getTopTenListIds(): Promise<string[]> {
+  let retries = 0
+  const maxRetries = 3
+
   try {
     let response = await fetch(
       "https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1",
@@ -29,7 +32,9 @@ export async function getTopTenListIds(): Promise<string[]> {
       }
     })
 
-    if (response.status === 202) {
+    console.log(response)
+
+    while (response.status === 202 && retries < maxRetries) {
       await setTimeout(5000)
       response = await fetch("https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1", {
         method: "GET",
@@ -38,6 +43,7 @@ export async function getTopTenListIds(): Promise<string[]> {
           "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
         }
       })
+      retries++
     }
 
     const xmlText = await response.text();
@@ -46,6 +52,8 @@ export async function getTopTenListIds(): Promise<string[]> {
     
     return topTenList.top.children.map(x => x.item.id)
   } catch {
+
+    console.log("API REQUEST ABORTED!!!")
     return []
   }
 }

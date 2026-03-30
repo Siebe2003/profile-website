@@ -16,7 +16,7 @@ const Carousel: FunctionComponent = () => {
   
 
   return (
-    <div className="relative w-full mx-auto block aspect-3/5 md:mx-0" onMouseOver={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div className="relative w-full aspect-3/5" onMouseOver={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <CarouselButton navigationDirection={"prev"} onClickHandler={() => swiperRef.current!.slidePrev()} isHovered={isHovered} />
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
