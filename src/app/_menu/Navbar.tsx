@@ -22,7 +22,7 @@ const destinations = [
   },
   {
     name: "Contact",
-    href: "#",
+    href: "/contact",
   },
 ];
 
@@ -35,7 +35,7 @@ function Navbar() {
       <div className="lg:grow"></div>
       <ul
         className={cn(
-          "bg-background md:bg-transparent md:h-full md:relative md:flex md:inset-0 md:gap-20 md:w-full shadow-sm w-50 -left-50 top-nav fixed gap-0 transition-[left] duration-150 ease-in-out lg:w-112.5 lg:gap-10",
+          "bg-background md:bg-transparent md:h-full md:relative md:flex md:inset-0 md:gap-20 md:w-full shadow-sm w-50 -left-52 top-nav fixed gap-0 transition-[left] duration-150 ease-in-out lg:w-112.5 lg:gap-10",
           !isCollapsed && "left-0",
         )}
       >
