@@ -18,23 +18,17 @@ type TopChild = {
 }
  
 export async function getTopTenListIds(): Promise<string[]> {
-  let retries = 0
   const maxRetries = 3
+  let retries = 0
+  let response: Response | undefined
 
   try {
-    let response = await fetch(
-      "https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1",
-      {
-      method: "GET",
-      headers: {
-        "content-type": "application/xml",
-        "Authorization": process.env.NEXT_PUBLIC_BGG_API_KEY || process.env.BGG_API_KEY!
+    do {
+      if (response?.status === 202) {
+        await setTimeout(5000)
       }
-    })
 
-    while (response.status === 202 && retries < maxRetries) {
-      await setTimeout(5000)
-      response = await fetch("https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1", {
+      response = await fetch(`https://boardgamegeek.com/xmlapi2/user?name=flyingviper&top=1&_t=${Date.now()}`, {
         method: "GET",
         headers: {
           "content-type": "application/xml",
@@ -42,7 +36,8 @@ export async function getTopTenListIds(): Promise<string[]> {
         }
       })
       retries++
-    }
+
+    } while (retries <= maxRetries && response.status === 202)
 
     const xmlText = await response.text();
     const jsonResponse = convertXML(xmlText) as ApiCallData
@@ -51,7 +46,6 @@ export async function getTopTenListIds(): Promise<string[]> {
     return topTenList.top.children.map(x => x.item.id)
   } catch {
 
-    console.log("API REQUEST ABORTED!!!")
     return []
   }
 }
