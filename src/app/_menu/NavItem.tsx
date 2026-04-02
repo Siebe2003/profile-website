@@ -9,9 +9,10 @@ interface NavItemProps {
   name: string
   href: string
   isActive: boolean
+  setIsCollapsed: (value: boolean) => void
 }
 
-const NavItem: FunctionComponent<NavItemProps> = ({name, href, isActive}) => {
+const NavItem: FunctionComponent<NavItemProps> = ({name, href, isActive, setIsCollapsed}) => {
   const [hover, setHover] = useState(false)
 
   return (
@@ -21,7 +22,8 @@ const NavItem: FunctionComponent<NavItemProps> = ({name, href, isActive}) => {
           isActive ? "bg-primary text-primary-foreground md:bg-transparent md:text-primary" : "hover:text-primary-foreground md:hover:text-primary bg-transparent text-foreground"
         )}
         onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}>
+        onMouseLeave={() => setHover(false)}
+        onClick={() => isActive || setIsCollapsed(true)}>
       <Link href={href} className="flex w-full h-full justify-center items-center relative">
         {name}
         <span 

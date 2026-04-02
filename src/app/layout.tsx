@@ -4,7 +4,7 @@ import "./globals.css"
 import "./main.css"
 import React from "react"
 import Navbar from "@/app/_menu/Navbar"
-import MainContentWrapper from "./_main/MainContentWrapper";
+import MainContentWrapper from "./MainContentWrapper";
 import Footer from "./_footer/Footer";
 
 const geistSans = Geist({
