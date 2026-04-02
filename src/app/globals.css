@@ -44,6 +44,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --spacing-nav: calc(var(--spacing) * 12);
+  --spacing-grid-item-1: calc(var(--spacing) * 4);
+  --spacing-grid-item-2: calc(var(--spacing) * 10);
+  --spacing-grid-item-3: calc(var(--spacing) * 6);
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
@@ -68,8 +71,8 @@
   --secondary-foreground: #ffffff;
   --muted: oklch(0.967 0.003 264.542);
   --muted-foreground: #b7a9b9;
-  --accent: #554454;
-  --accent-foreground: #ffffff;
+  --accent: #FF8BA0;
+  --accent-foreground: var(--background);
   --muted-accent: #AE9FCF;
   --muted-primary: #341427;
   --destructive: oklch(0.577 0.245 27.325);
@@ -158,6 +161,10 @@
 
   .button {
     @apply cursor-pointer inline-flex items-center gap-2 text-primary-foreground bg-primary hover:bg-primary-strong active:bg-primary-strong font-medium rounded-lg text-sm px-3 py-2 md:text-base;
+  }
+
+  .header {
+    @apply text-secondary-foreground text-2xl font-bold text-center mb-4 pb-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%] md:text-3xl md:pb-2 md:pt-1;
   }
 }
 
