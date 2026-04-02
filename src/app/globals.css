@@ -23,6 +23,7 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-accent: var(--muted-accent);
@@ -76,6 +77,7 @@
   --muted-accent: #AE9FCF;
   --muted-primary: #341427;
   --destructive: oklch(0.577 0.245 27.325);
+  --success: #13d110;
   --border: oklch(0.928 0.006 264.531);
   --input: oklch(0.928 0.006 264.531);
   --ring: oklch(0.707 0.022 261.325);
@@ -150,7 +152,11 @@
   }
 
   p {
-    @apply text-sm md:text-base
+    @apply text-sm md:text-base;
+  }
+
+  input[type="text"], input[type="email"], textarea {
+    @apply w-full bg-surface border-foreground border-b-2 focus:ring-0 focus:ring-offset-0 focus:outline-none focus:bg-secondary focus:text-secondary-foreground px-2 py-1 mb-1;
   }
 }
 
@@ -160,12 +166,13 @@
   }
 
   .button {
-    @apply cursor-pointer inline-flex items-center gap-2 text-primary-foreground bg-primary hover:bg-primary-strong active:bg-primary-strong font-medium rounded-lg text-sm px-3 py-2 md:text-base;
+    @apply cursor-pointer inline-flex items-center gap-2 text-primary-foreground bg-primary hover:bg-primary-strong disabled:opacity-70 disabled:cursor-auto active:bg-primary-strong font-medium rounded-lg text-sm px-3 py-2 md:text-base;
   }
 
   .header {
     @apply text-secondary-foreground text-2xl font-bold text-center mb-4 pb-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%] md:text-3xl md:pb-2 md:pt-1;
   }
+
 }
 
 .swiper-pagination-bullet {
