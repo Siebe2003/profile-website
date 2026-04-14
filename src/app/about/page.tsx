@@ -60,7 +60,7 @@ function AboutPage() {
         addition, I regularly visit a board gaming event to play with likeminded
         people. Due to this, I have developed a rather expansive collection of
         board games that all fit different styles play, be it cooperative,
-        worker placement, area control, push your luck, etc. The board games I
+        worker placement, area control, push your luck, etc. You can find my collection by clicking this <span className="text-accent underline"><a href="https://boardgamegeek.com/collection/user/flyingviper?subtype=boardgame&own=1&ff=1">link</a></span>. The board games I
         like to play are much more strategic than classics like
         &ldquo;Monopoly&ldquo; and &ldquo;Connect Four&ldquo;. Board games are a
         way for me to challenge myself. Coming up with a plan to try to win is
