@@ -71,7 +71,7 @@ function CvPage() {
             <div className="text-center leading-10 lg:text-start xl:text-lg">Software Developer</div>
           </div>
           <div className="text-center hidden mt-6 md:block lg:mt-0 lg:flex-1">
-            <a className="button" href="/images/cv-portrait.png" download>
+            <a className="button" href="/documents/Siebe-Verhaegen-cv-2026.pdf" download>
               <TbDownload className="text-xl" />Download Resume
             </a>
           </div>

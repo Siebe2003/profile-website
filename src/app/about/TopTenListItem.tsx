@@ -22,7 +22,7 @@ function TopTenListItem({ item }: TopTenListItemProps) {
   }
 
   return (
-    <div className={cn("aspect-square relative flex p-grid-item-1 md:p-grid-item-2 xl:p-grid-item-2 2xl:p-grid-item-3", expand && "aspect-2/1 col-span-2")} ref={ref} onClick={clickEventHandler}>
+    <div className={cn("aspect-square relative flex cursor-pointer p-grid-item-1 md:p-grid-item-2 xl:p-grid-item-2 2xl:p-grid-item-3", expand && "aspect-2/1 col-span-2")} ref={ref} onClick={clickEventHandler}>
       <div className={cn("w-full h-full overflow-hidden", expand && "w-1/2 pe-grid-item-1 md:pe-grid-item-2 xl:pe-grid-item-2 2xl:pe-grid-item-3")}>
         <Image width={500} height={500} src={item.image} alt={`Photo of ${item.name}`} className={cn("object-cover w-full h-full", expand && "-ms-6 md:-ms-10 delay-200 duration-200 transition-[margin]")} />
       </div>

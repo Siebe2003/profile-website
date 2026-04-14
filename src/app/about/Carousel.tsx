@@ -33,10 +33,16 @@ const Carousel: FunctionComponent = () => {
         }}
       >
         <SwiperSlide>
-          <Image src="/images/hero-image-01.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
+          <Image src="/images/about-slide-01.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/images/hero-image-01.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
+          <Image src="/images/about-slide-02.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src="/images/about-slide-03.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src="/images/about-slide-04.jpg" alt="item" width={200} height={200} className="w-full z-10"/>
         </SwiperSlide>
       </Swiper>
       <CarouselButton navigationDirection={"next"} onClickHandler={() => swiperRef.current!.slideNext()} isHovered={isHovered} />
