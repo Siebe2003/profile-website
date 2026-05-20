@@ -20,7 +20,7 @@ const skills: ISkill[] = [
   },
   {
     name: ".NET",
-    value: 4
+    value: 5
   },
   {
     name: "Razor",
@@ -28,7 +28,7 @@ const skills: ISkill[] = [
   },
   {
     name: "Kotlin",
-    value: 3
+    value: 4
   },
   {
     name: "PHP",
@@ -40,7 +40,7 @@ const skills: ISkill[] = [
   },
   {
     name: "WordPress",
-    value: 3
+    value: 2
   },
   {
     name: "Github",
@@ -48,7 +48,7 @@ const skills: ISkill[] = [
   },
   {
     name: "Bitbucket",
-    value: 2
+    value: 3
   },
 ]
 
@@ -71,7 +71,7 @@ function CvPage() {
             <div className="text-center leading-10 lg:text-start xl:text-lg">Software Developer</div>
           </div>
           <div className="text-center hidden mt-6 md:block lg:mt-0 lg:flex-1">
-            <a className="button" href="/documents/Siebe-Verhaegen-cv-2026.pdf" download>
+            <a className="button" href="/documents/resume-siebe-verhaegen.pdf" download>
               <TbDownload className="text-xl" />Download Resume
             </a>
           </div>
