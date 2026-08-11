@@ -94,6 +94,12 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
 }
 
 .dark {
@@ -173,6 +179,9 @@
     @apply text-secondary-foreground text-2xl font-bold text-center mb-4 pb-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%] md:text-3xl md:pb-2 md:pt-1;
   }
 
+  .react-responsive-3d-carousel__item {
+    
+  }
 }
 
 .swiper-pagination-bullet {
