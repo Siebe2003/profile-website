@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`}>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`} suppressHydrationWarning={true}>
         <header className="z-30">
           <Navbar />
         </header>

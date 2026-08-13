@@ -179,8 +179,16 @@
     @apply text-secondary-foreground text-2xl font-bold text-center mb-4 pb-1 bg-linear-[90deg,transparent_0%,var(--color-secondary)_30%,var(--color-secondary)_70%,transparent_100%] md:text-3xl md:pb-2 md:pt-1;
   }
 
-  .react-responsive-3d-carousel__item {
-    
+  .react-responsive-3d-carousel {
+    @apply h-[240px]! md:aspect-[1/0.4]! md:h-auto!;
+  }
+
+  .react-responsive-3d-carousel__item.fixed-width.fixed-height {
+    @apply w-full! md:w-2/3! 2xl:w-3/5! h-auto! aspect-[1/0.455]!;
+  }
+
+  .react-responsive-3d-carousel__arrows-container {
+    @apply md:p-5;
   }
 }
 
