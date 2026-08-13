@@ -7,7 +7,7 @@ interface ICarouselContext {
 }
 
 const defaultContext: ICarouselContext = {
-  currentItem: { title: "", body: "", thumbnail: "" },
+  currentItem: { title: "", body: "", thumbnail: "", tags: [] },
   setCurrentItem: () => {},
 }
 
@@ -22,7 +22,7 @@ export function useProjectCarousel() {
 }
 
 function CarouselProvider({ children }: { children: React.ReactNode }) {
-  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "" })
+  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "", tags: [] })
 
   return (
     <CarouselContext.Provider value={{
