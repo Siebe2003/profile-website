@@ -8,7 +8,9 @@ async function ProjectsPage() {
   
   return (
     <div className="w-full min-h-screen">
-      <Carousel items={[...projects, ...projects]} />
+      <h2 className="header w-1/2 mx-auto">Projects</h2>
+      <p className="text-center">Here are some of the projects I&apos;ve developed.</p>
+      <Carousel items={projects} />
       <Project />
     </div>
   )

@@ -50,12 +50,18 @@ function Carousel({ items }: CarouselProps) {
       autoPlay={false}
       onChange={handleSlideChange}
       focusOnSelect={true}
-      indicators={{activeColor: color, color: "#2e2e2e"}}
+      indicators={{
+        activeColor: color, 
+        color: "#2e2e2e",
+        gap: "10px"
+      }}
+      transformDuration={500}
       containerHeight="400px"
       arrows={{
-        prevIcon: <IoArrowBackCircle  />,
-        nextIcon: <IoArrowForwardCircle />,
-        color: "#333333"
+        prevIcon: <IoArrowBackCircle className="opacity-40 hover:opacity-100 text-gray-500 mx-auto" />,
+        nextIcon: <IoArrowForwardCircle className="opacity-40 hover:opacity-100 text-gray-500 mx-auto" />,
+        shadow: "none",
+        width: "50%"
       }}
     />
   )
