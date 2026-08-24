@@ -16,11 +16,8 @@ export default function Home() {
           The purpose of this website is to show people who I am. This includes my interests, skills and accomplishments. This website is entirely made by me
           to give it a personal flare, along with showing my frontend development skills. If you would have any questions for me, feel free to
           contact me using my email or the contact form.</p>
-        <Button className="gap-6 cursor-pointer w-min border-none text-xl py-6 ps-10 pe-1.25 font-normal rounded-full hover:bg-primary-strong">
-          <Link href={"/cv"}>Read my CV</Link>
-          <div className="w-max bg-transparent p-1.75 rounded-full">
-            <Image src="/images/cv.png" alt="cv icon" width={25} height={25} />
-          </div>
+        <Button className="cursor-pointer w-min border-none text-md font-medium rounded-lg hover:bg-primary-strong">
+          <Link href="/projects">View my projects</Link>
         </Button>
       </div>
     </div>

@@ -11,7 +11,7 @@ function Contact() {
 
   return (
     <div className="w-full px-6 md:px-0 md:w-[80%] md:mx-auto lg:w-[60%] 2xl:w-[50%]">
-      <h1 className="header text-4xl font-bold mb-10 md:text-5xl xl:mb-20">Contact me</h1>
+      <h1 className="header">Contact me</h1>
       <form action={action}>
         <div className="flex gap-4 lg:gap-10">
           <InputField 

@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiasing`} suppressHydrationWarning={true}>
         <header className="z-30">
           <Navbar />
         </header>
