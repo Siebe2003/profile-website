@@ -16,7 +16,7 @@ const CarouselContext = createContext<ICarouselContext>(defaultContext)
 export function useProjectCarousel() {
   const context = useContext(CarouselContext)
   if (!context) {
-    throw new Error("useProjectCarousel must be used within a CarouselProvider")
+    throw new Error("'useProjectCarousel' hook must be used within a CarouselProvider")
   }
   return context
 }
