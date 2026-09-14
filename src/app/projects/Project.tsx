@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "motion/react"
 function Project() {
   const { currentItem } = useProjectCarousel()
 
+  if (!currentItem) return null
+
   return (
     <div className="px-6 py-2 md:px-16 lg:px-30 xl:px-70">
       <AnimatePresence mode="wait">
@@ -19,7 +21,7 @@ function Project() {
           <h2 className="font-bold text-2xl text-center md:text-3xl">{currentItem.title}</h2>
           <p className="py-2">{currentItem.body}</p>
           <div className="flex flex-row flex-wrap gap-2 mt-4">
-            {currentItem.tags.map(x => <div key={x} className="bg-secondary rounded-md px-4">{x}</div>)}
+            {currentItem.skills?.map(x => <div key={x} className="bg-secondary rounded-md px-4">{x}</div>)}
           </div>
         </motion.div>
       </AnimatePresence>

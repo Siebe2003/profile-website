@@ -1,23 +1,48 @@
-import { createClient } from '@/lib/supabase/server'
+import { collection, DocumentReference, getDoc, getDocs } from "firebase/firestore"
+import { db } from "@/lib/firebase"
+
+interface IData {
+  id: string
+  title: string
+  body: string
+  thumbnail: string
+  link: string
+  skills: DocumentReference[]
+}
+
+interface ISkillReference {
+  id: string
+  name: string
+  isSoftSkill: boolean
+}
 
 export interface IProject {
   title: string
   body: string
   thumbnail: string
-  tags: string[]
+  skills: string[]
 }
 
 export async function getProjects(): Promise<IProject[]> {
-  const supabase = createClient()
-  const { data: projects, error } = await supabase.from('projects').select(`
-    title,
-    body,
-    thumbnail,
-    tags ( name )
-  `)
+  const projects = []
+  const snapshot = await getDocs(collection(db, "projects"))
+  const items = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data()
+  })) as IData[]
 
-  if (error) throw new Error("Projects failed to load")
+  for (const item of items) {
+    const snapshotPromise = item.skills.map((ref) => getDoc(ref))
+    const skillsSnapshot = await Promise.all(snapshotPromise)
 
-  return projects.map(x => ({...x, tags: x.tags.map(t => t.name)}))
+    const project: IProject = {
+      ...item,
+      skills: skillsSnapshot.map((doc) => (doc.data() as ISkillReference).name)
+    }
+
+    projects.push(project)
+  }
+
+  return projects
 }
 

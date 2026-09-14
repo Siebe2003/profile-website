@@ -7,7 +7,7 @@ interface ICarouselContext {
 }
 
 const defaultContext: ICarouselContext = {
-  currentItem: { title: "", body: "", thumbnail: "", tags: [] },
+  currentItem: { title: "", body: "", thumbnail: "", skills: [] },
   setCurrentItem: () => {},
 }
 
@@ -16,13 +16,13 @@ const CarouselContext = createContext<ICarouselContext>(defaultContext)
 export function useProjectCarousel() {
   const context = useContext(CarouselContext)
   if (!context) {
-    throw new Error("useProjectCarousel must be used within a CarouselProvider")
+    throw new Error("'useProjectCarousel' hook must be used within a CarouselProvider")
   }
   return context
 }
 
 function CarouselProvider({ children }: { children: React.ReactNode }) {
-  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "", tags: [] })
+  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "", skills: [] })
 
   return (
     <CarouselContext.Provider value={{
