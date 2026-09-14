@@ -22,7 +22,7 @@ export function useProjectCarousel() {
 }
 
 function CarouselProvider({ children }: { children: React.ReactNode }) {
-  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "", tags: [] })
+  const [currentItem, setCurrentItem] = useState<IProject>({ title: "", body: "", thumbnail: "", skills: [] })
 
   return (
     <CarouselContext.Provider value={{
