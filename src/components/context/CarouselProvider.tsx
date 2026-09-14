@@ -7,7 +7,7 @@ interface ICarouselContext {
 }
 
 const defaultContext: ICarouselContext = {
-  currentItem: { title: "", body: "", thumbnail: "", tags: [] },
+  currentItem: { title: "", body: "", thumbnail: "", skills: [] },
   setCurrentItem: () => {},
 }
 
